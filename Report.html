@@ -190,9 +190,10 @@
         </ul>
         <nav role="navigation" id="toc">
           <ul>
-          <li><a href="#작업형-제1유형">1. 작업형 제1유형</a></li>
-          <li><a href="#작업형-제2유형">2. 작업형 제2유형</a></li>
-          <li><a href="#작업형-제2유형-회귀문제">3. 작업형 제2유형: 회귀문제</a></li>
+          <li><a href="#작업형-제1유형">1 작업형 제1유형</a></li>
+          <li><a href="#작업형-제2유형">2 작업형 제2유형</a></li>
+          <li><a href="#작업형-제2유형-회귀문제">3 작업형 제2유형: 회귀문제</a></li>
+          <li><a href="#some-tips">4 Some tips</a></li>
           </ul>
         </nav>
         <ul class="authors">
@@ -228,7 +229,7 @@
 </style>
 <p><br></p>
 <div id="작업형-제1유형" class="section level2">
-<h2>1. 작업형 제1유형</h2>
+<h2>1 작업형 제1유형</h2>
 <p>mtcars 데이터셋(mtcars.csv)의 qsec 컬럼을 최소최대 척도(Min-Max Scale)로 변환한 후 0.5보다 큰 값을 가지는 레코드 수를 구하시오.</p>
 <hr />
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
@@ -250,7 +251,7 @@
 <pre><code>## [1] 9</code></pre>
 </div>
 <div id="작업형-제2유형" class="section level2">
-<h2>2. 작업형 제2유형</h2>
+<h2>2 작업형 제2유형</h2>
 <p>고객 3,500명에 대한 학습용 데이터(y_train.csv, X_train.csv)를 이용하여 성별예측 모형을 만든 후, 이를 평가용 데이터(X_test.csv)에 적용하여 얻은 2,482명 고객의 성별 예측값(남자일 확률)을 다음과 같은 형식의 CSV 파일로 생성하시오.(제출한 모델의 성능은 ROC-AUC 평가지표에 따라 채점)</p>
 <ul>
 <li>custid: 고객 ID</li>
@@ -446,7 +447,7 @@
 <span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##   51.95    0.65   53.69</code></pre>
+##   52.01    0.62   53.77</code></pre>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>mod1_rf</span></code></pre></div>
 <pre><code>## Random Forest 
 ## 
@@ -503,7 +504,7 @@
 </div>
 </div>
 <div id="작업형-제2유형-회귀문제" class="section level2">
-<h2>3. 작업형 제2유형: 회귀문제</h2>
+<h2>3 작업형 제2유형: 회귀문제</h2>
 <p>다이아몬드 가격 예측하는 problem을 풀어보자. 전반적인 과정은 앞서 수행했던 분류문제와 동일하므로 설명은 생략한채로 진행한다.</p>
 <hr />
 <div id="preparing-data" class="section level3">
@@ -554,7 +555,7 @@
 <span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##   97.28    0.47   98.99</code></pre>
+##   95.81    0.44   96.99</code></pre>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>mod2_rf</span></code></pre></div>
 <pre><code>## Random Forest 
 ## 
@@ -586,7 +587,7 @@
 <span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span> </span>
 <span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rowid_to_column</span>(<span class="st">&quot;id&quot;</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">write_csv</span>(<span class="st">&quot;./002001990_reg.csv&quot;</span>) <span class="co"># 수험번호.csv</span></span></code></pre></div>
-<p>혹시, 시험 간 tuning이 지나치게 오래걸려 1분이 넘는다면 튜닝없이 다음의 코드를 이용하자:</p>
+<p>시험 간 tuning이 지나치게 오래걸려 1분이 넘는다면 다음의 코드를 이용:</p>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>mod2_rf <span class="ot">&lt;-</span> <span class="fu">randomForest</span>(</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>    price <span class="sc">~</span>.,</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> train_juiced,</span>
@@ -601,6 +602,17 @@
 <span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rowid_to_column</span>(<span class="st">&quot;id&quot;</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">write_csv</span>(<span class="st">&quot;./002001990_reg.csv&quot;</span>) <span class="co"># 수험번호.csv</span></span></code></pre></div>
 </div>
+</div>
+<div id="some-tips" class="section level2">
+<h2>4 Some tips</h2>
+<hr />
+<ul>
+<li>패키지 리스트 확인 명령어: <code>as.data.frame(installed.packages()[,c(3:4)])</code></li>
+<li>시험환경 주석처리: ctrl + /</li>
+<li>윈도우 메모장 이용 가능</li>
+<li><code>help()</code> 이용 가능</li>
+<li><code>library(패키지, verbose = F, warn.conflicts = F)</code>: console 창 주의사항 등 메세지 출력 방지</li>
+</ul>
 </div>
 
    
